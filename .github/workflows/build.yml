@@ -17,5 +17,5 @@ jobs:
       - name: Copy to windows server
         run: | 
          sshpass -p "${{secrets.ADMIN_PASSWORD}}" \ 
-          scp -r qasim.html -o StrictHostKeyChecking=no \
+          scp qasim.html -o StrictHostKeyChecking=no \
           "${{secrets.ADMIN_USERNAME}}@${{secrets.SERVER_IP}}:C:/inetpub/wwwroot/"
