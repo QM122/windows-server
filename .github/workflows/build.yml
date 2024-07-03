@@ -15,9 +15,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Disable strict host checking
-        run: ssh -o StrictHostKeyChecking=no {{secrets.ADMIN_USERNAME}}@{{secrets.SERVER_IP}}
+        run: ssh -o StrictHostKeyChecking=no ${{secrets.ADMIN_USERNAME}}@${{secrets.SERVER_IP}}
 
       - name: Copy to windows server
         run: | 
-         sshpass -p "{{secrets.ADMIN_PASSWORD}}" scp -r qasim.html \
-          {{secrets.ADMIN_USERNAME}}@{{secrets.SERVER_IP}}: 'C:/inetpub/wwwroot/'
+         sshpass -p '${{secrets.ADMIN_PASSWORD}}' scp -r qasim.html \
+          ${{secrets.ADMIN_USERNAME}}@${{secrets.SERVER_IP}}: 'C:/inetpub/wwwroot/'
