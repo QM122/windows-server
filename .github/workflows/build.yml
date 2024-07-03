@@ -16,10 +16,11 @@ jobs:
 
       - name: Disable strict host checking
         run: | 
-          sshpass -p '${{secrets.ADMIN_PASSWORD}}' \ 
+          sshpass -p "${{secrets.ADMIN_PASSWORD}}" \ 
           ssh -o StrictHostKeyChecking=no ${{secrets.ADMIN_USERNAME}}@${{secrets.SERVER_IP}}
 
       - name: Copy to windows server
         run: | 
-         sshpass -p '${{secrets.ADMIN_PASSWORD}}' scp -r qasim.html \
+         sshpass -p "${{secrets.ADMIN_PASSWORD}}" \ 
+          scp -r qasim.html \
           ${{secrets.ADMIN_USERNAME}}@${{secrets.SERVER_IP}}: 'C:/inetpub/wwwroot/'
