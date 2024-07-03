@@ -17,7 +17,7 @@ jobs:
       - name: Disable strict host checking
         run: | 
           sshpass -p "${{secrets.ADMIN_PASSWORD}}" \ 
-          ssh -o StrictHostKeyChecking=no ${{secrets.ADMIN_USERNAME}}@${{secrets.SERVER_IP}}
+          ssh -o "StrictHostKeyChecking=no" ${{secrets.ADMIN_USERNAME}}@${{secrets.SERVER_IP}}
 
       - name: Copy to windows server
         run: | 
